@@ -1,45 +1,32 @@
 // Questions
     // Does key press have to mean keydown?
         // Performance increases with fewer event handlers and keyup is necessary
+    // Can the listener be an onsubmit/submit listener and work properly?
+        // Why does click work properly?
+    // Be sure to show team the Interactive-Sign-Up-And-Payment-Form project
+    // How does one get the reference to the most recently added and in-DOM todo?
+        // This value enables usage of document.todos.insertBefore(newElem, currentElem);
 
 +function() {
     'use strict';
-    // Add event listener to the button in the form that
-        //prevents default form action
-        // fires addTodo(e){...} to populate list properly (append html)
-    
-    // document.getElementById('todoButton').addEventListener('submit', (e) => {
-    //     e.preventDefault();
-    //     console.log('submit handler');
-        
-    //     // addTodo(e);
-    //     // document.getElementById('todos').innerHTML = "Hello World";
-    // });
+
     const todoAddButton = document.querySelector('.todo-button');
     const todoField = document.querySelector('.todo-field');
     const todoList = document.querySelector('.todos');
-    const todoListItems = [];
+    const todoListItems = []; // Avoid creating array if possible
 
-    // 2) Input value should be added to list when 'return' key is pressed (use SUBMIT handler + PREVENTDEFAULT)
     todoField.addEventListener('keydown', () => {
-        
-        // console.log('keydown handler fired ', event.target.value);
-        
-        
-        // TODO: Find action set that requires removing active button class
         todoAddButton.classList.add('todo-button--active');
-        // document.getElementById("todos").innerHTML += "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
-        // event.preventDefault();
     });
 
     todoField.addEventListener('keyup', () => {
-        // console.log('is element active? ', document.activeElement);
-        console.log('field is active', todoField === document.activeElement);
-        if(todoField.value === '') {
+        // console.log('field is active', todoField === document.activeElement);
+        if(todoField.value.trim() === '') {
             todoAddButton.classList.remove('todo-button--active');
         }
     });
 
+    // 2) Input value should be added to list when 'return' key is pressed (use SUBMIT handler + PREVENTDEFAULT)
     todoAddButton.addEventListener('click', (event) => {
         event.preventDefault(); // TODO: Replace with request when backend is active
         if(todoField.value.trim() === '') event.preventDefault();
@@ -49,11 +36,35 @@
     });
 
     function addTodo() {
+        // fires addTodo(e){...} to populate list properly (append html)
 
         // TODO: Push entire HTML element after checking if it's first element and appending addition division line if so
-        todoListItems.push(todoField.value.trim());
-        todoList.innerHTML = todoListItems;
+        // todoListItems.push(todoField.value.trim());
+        // let todoToAdd = document.createElement('input').setAttribute('type', 'checkbox');
 
+        // <label class="container">Two
+        //     <input type="checkbox">
+        //     <span class="checkmark"></span>
+        // </label>
+        // Append new element, check button and all, to innerHTML of #todos
+            // Append an element with an added click handler that removes it from DOM on check box click
+        
+        let todoToAdd = document.createElement('p');
+        todoToAdd.classList.add('test-class');
+        let todoLabel = document.createElement('label');
+        todoToAdd.appendChild(todoLabel);
+        let todoInput = document.createElement('input');
+        todoInput.setAttribute('type', 'checkbox');
+        let todoText = document.createTextNode(todoField.value.trim());
+
+        todoLabel.appendChild(todoInput);
+        todoLabel.appendChild(todoText); // Use insertBefore() to add to top of list
+        
+
+        // todoListItems.push(todoToAdd);
+        // todoList.innerHTML = todoListItems;
+        todoList.appendChild(todoToAdd);
+        
         // Create element with text form value and add to innerHTML
             // Add styled divider above and below element unless it's the first element, then only below
             // <label><input type="checkbox" name="all" id="all"> Main Conference — $200</label>
@@ -62,9 +73,8 @@
                 // Add input checkbox element
                     // <input type="checkbox" id="id-checkbox"/>
                 // Add class to style element
-
-        // Append new element, check button and all, to innerHTML of #todos
-            // Append an element with an added click handler that removes it from DOM on check box click
-        
+        // let todoToAdd = document.createElement('label').classList('label-class');
+            
+        // Use removeChild() on click of check box
     }
 }();

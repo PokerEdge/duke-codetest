@@ -12,6 +12,10 @@ form {
     box-shadow: 5px 5px 6px #e8e8e8, -3px -3px 3px #fbfbfb;
 }
 
+legend {
+    display: none;
+}
+
 fieldset {
     margin: 40px auto 0px;
     width: 67%;
@@ -24,11 +28,6 @@ input[type=text] {
     font-weight: 600;
     border: 1px solid #ccc;
 }
-
-/* #todoField {
-    height: 34px;
-    margin-right: 6px;
-} */
 
 .todo-button {
     padding: 9px;
