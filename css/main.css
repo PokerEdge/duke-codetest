@@ -1,3 +1,13 @@
+/* Notes
+    Outline: none; has been used several times to maintain consistancy with
+    mock ups but will hinder usability for keyboard only users. Business should
+    weight in on the decision to keep or remove this element highlight 'style' */
+/* Potential improvements and expansions
+    Create style that prevents overflow of extremely long TODO entry */
+
+/******************
+*** FORM STYLES ***
+******************/
 form {
     display: block;
     margin: 0 auto;
@@ -9,7 +19,9 @@ form {
     background: #f4f4f4;
     border-radius: 8px;
     color: #000;
-    box-shadow: 5px 5px 6px #e8e8e8, -3px -3px 3px #fbfbfb;
+    box-shadow: 
+        5px 5px 6px #e8e8e8,
+        -3px -3px 3px #fbfbfb;
     overflow: hidden;
 }
 
@@ -19,179 +31,86 @@ legend {
 
 fieldset {
     margin: 40px auto 0px;
-    width: 67%; /* TODO: Edit this percentage */
+    width: 82.0025%;
     border: 0;
 }
 
 input[type=text] {
     font: 18px Arial, Helvetica, sans-serif;
+    width: 82.0025%;
     height: 34px;
     font-weight: 600;
     border: 1px solid #ccc;
+    outline: none;
 }
 
 .todo-button {
+    border: 1px solid #ccc;
     padding: 9px;
     margin: 0;
     background: #eee;
     font: 16px Arial, Helvetica, sans-serif;
     color: #000;
+    outline: none;
 }
 
     .todo-button--active {
         background: #2ecc71;
         color: #fff;
+        outline: none;
     }
 
 .user-prompt-text {
-    margin-top: 37px;
+    margin-top: 24px;
     font: 16px Arial, Helvetica, sans-serif;
     text-align: center;
     font-style: italic;
 }
 
 .todos {
-    margin: 16px 0px;
-}
-
-/* .container {
-    box-shadow: 
-        0px -1px 0px #fff,
-        0px -2px 0px #ccc,
-        0px 1px 0px #ccc,
-        0px 2px 0px #fff;
-    width: 67%;
-    margin: 0 auto;
-    margin-top: 2px;
-    padding-top: 10px;
-    height: 50px;
-    align-content: center;
-}
-
-.todo-label {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 18px 0px 26px;
 }
 
 .todo-text{
     margin-left: 10px;
     margin-top: 10px;
-}
-
-.todo-label input {
     position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
 }
 
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color: #f8f8f8;
-    box-shadow: 1px 1px 0px #c9c9c9;
-    border: 1px solid #ccc;
+    margin-top: 8px;
+    margin-bottom: 16px;
 }
 
-.container:hover input ~ .checkmark {
-    background: #f4f4f4;
-    left: 7px;
-    top: -1px;
-    width: 10px;
-    height: 20px;
-    border: solid #e47e30;
-    border-width: 0 6px 6px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.todo-label:hover input ~ .checkmark::after {
-    left: 7px;
-    top: -1px;
-    width: 10px;
-    height: 20px;
-    border: solid #e47e30;
-    border-width: 0 6px 6px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-} */
-
-.todo-text{
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.checkmark {
-    margin-top: 10px;
-}
-
-/* CONTAINER NEEDS CONTAINER TO HANDLE PADDING */
-
-/* .todo-container {
-    box-shadow: 
-        0px -1px 0px #fff,
-        0px -2px 0px #ccc,
-        0px 1px 0px #ccc,
-        0px 2px 0px #fff;
-    width: 67%;
-    margin: 0 auto;
-    margin-top: 2px;
-    padding-top: 10px;
-    height: 50px;
-    align-content: center;
-} */
-
-/* The container */
+/************************
+*** TO DO LIST STYLES ***
+************************/
 .container {
     display: block;
     position: relative;
-
-    /* Recent additions from above */
     box-shadow: 
         0px -1px 0px #fff,
         0px -2px 0px #ccc,
         0px 1px 0px #ccc,
         0px 2px 0px #fff;
-    width: 67%; /* TODO: Edit this value */
+    width: 72%;
     margin: 0 auto;
-    margin-bottom: 12px;
+    margin-bottom: 2px;
     margin-top: 2px;
-    padding-top: 10px;
     height: 50px;
     align-content: center;
-
-    
     padding-left: 35px;
-    /* margin-bottom: 12px; */
     font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .container input {
+}
+
+.container input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
+}
+
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -200,38 +119,29 @@ input[type=text] {
     background-color: #f8f8f8;
     box-shadow: 1px 1px 0px #c9c9c9;
     border: 1px solid #ccc;
-
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
-    background-color: #f8f8f8;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .container input:hover ~ .checkmark{
-    cursor: default;
-  }
-
-  .todo-text:hover {
     cursor: pointer;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+}
+
+.container input:hover ~ .checkmark{
+    cursor: pointer;
+}
+
+.todo-text:hover {
+    cursor: pointer;
+}
+
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  /* Show the checkmark when hover and when focus */
-  .container input:hover ~ .checkmark:after,
-  .container input:focus ~ .checkmark:after {
+}
+
+.container input:hover ~ .checkmark:after,
+.container input:focus ~ .checkmark:after {
     display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .container .checkmark:after {
+}
+
+.container .checkmark:after {
     cursor: pointer;
     left: 7px;
     top: -1px;
@@ -242,16 +152,18 @@ input[type=text] {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
+}
 
-/***********************
-**** MEDIA QUERIES *****
-***********************/
-
-/* TODO: Edit break point width and button width (maybe text input width) */
-@media screen and (max-width: 390px) {
+/********************
+*** MEDIA QUERIES ***
+********************/
+@media screen and (max-width: 399px) {
     .todo-button {
         margin: 10px auto 0;
-        width: 97.5%;
+        width: 100%;
+    }
+
+    input[type=text] {
+        width: 99%;
     }
 }
