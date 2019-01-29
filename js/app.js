@@ -4,6 +4,9 @@
     // Handle the use case of very long to-do text addition for better UX
     // Possibly refactor to use constructor function called AddToDo(text)
 
+
+// Add hover effect to show check box on hover (of label) 
+
 +function() {
     'use strict';
 
@@ -59,11 +62,8 @@
         userPrompt.remove();
        
         todoLabel.addEventListener('click', () => {
-            todoLabel.classList.add('transition-visibility');
-            setInterval(() => {
-                todoToAdd.remove();
-                if(todoList.childElementCount === 0) todoList.prepend(userPrompt);
-            }, 1500);
+            todoToAdd.remove();
+            if(todoList.childElementCount === 0) todoList.prepend(userPrompt);
         });
     }
 }();
